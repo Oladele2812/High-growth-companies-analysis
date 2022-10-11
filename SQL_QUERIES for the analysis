@@ -1,0 +1,30 @@
+with top_industries as (
+    
+    select i.industry as industry, count(*) as count
+    from industries as i
+    inner join dates as d
+    on i.company_id=d.company_id
+    where extract(year from d.date_joined) in ('2021','2020','2019')
+    group by industry
+    order by count desc
+    limit 3
+),
+    
+yearly_rankings as (
+select i.industry,count(*) as num_unicorns,extract(year from d.date_joined) as year,
+avg(f.valuation) as average_valuation
+    from industries as i
+    inner join dates  as d
+    on i.company_id = d.company_id
+    inner join funding as f
+    on i.company_id = f.company_id
+    group by i.industry,year
+    )
+ 
+select industry,year,num_unicorns ,
+round(avg(average_valuation/ 1000000000),2) as average_valuation_billions
+from yearly_rankings
+where year in ('2019','2020','2021')
+and industry in (select industry from top_industries) 
+group by industry,num_unicorns,year,average_valuation
+order by industry,year desc
