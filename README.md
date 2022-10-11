@@ -1,3 +1,7 @@
+[companies.csv](https://github.com/Oladele2812/High-growth-companies-analysis/files/9756686/companies.csv)
+[industries.csv](https://github.com/Oladele2812/High-growth-companies-analysis/files/9756687/industries.csv)
+[funding.csv](https://github.com/Oladele2812/High-growth-companies-analysis/files/9756689/funding.csv)
+[dates.csv](https://github.com/Oladele2812/High-growth-companies-analysis/files/9756690/dates.csv)
 # High-growth-companies-analysis
 Analyzing trends in high-growth companies using unicorn database from Datacamp and quering the Database with SQL.
 Problem to be Solved:
